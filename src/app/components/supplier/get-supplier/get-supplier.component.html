@@ -1,0 +1,36 @@
+<div class="container py-5">
+  <h2 class="display-4 text-secondary text-center mb-4">Supplier List</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <button class="btn btn-primary mb-3" (click)="printSuppliers()">Print Supplier</button>
+
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h5 class="text-center mb-4">All Suppliers</h5>
+
+          <div *ngIf="suppliers.length === 0" class="alert alert-warning text-center">
+            No suppliers found.
+          </div>
+
+          <div *ngFor="let supplier of suppliers" class="mt-4">
+            <div class="card mb-3 shadow-sm">
+              <div class="card-header bg-primary text-white">
+                <h6 class="mb-0">Supplier ID: {{ supplier.id }}</h6>
+              </div>
+              <div class="card-body">
+                <p><strong>Name:</strong> {{ supplier.name }}</p>
+                <p><strong>CNPJ:</strong> {{ supplier.cnpj }}</p>
+                <p><strong>Fiscal Code:</strong> {{ supplier.cep }}</p>
+                <p><strong>Country:</strong> {{ supplier.country }}</p>
+                <p><strong>QR Code:</strong> {{ supplier.qrCode }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

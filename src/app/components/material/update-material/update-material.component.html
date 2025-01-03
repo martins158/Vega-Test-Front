@@ -1,0 +1,151 @@
+<div class="container py-5">
+  <h2 class="display-4 text-warning text-center mb-4">Update Material</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h5 class="card-title text-center">Enter Material ID to Update</h5>
+
+          <form (ngSubmit)="updateMaterial(material)">
+            <div class="mb-3">
+              <label for="materialId" class="form-label">Material ID</label>
+              <input
+                type="text"
+                id="materialId"
+                class="form-control"
+                name="materialId"
+                [(ngModel)]="material.id"
+                required
+                #materialId="ngModel"
+              />
+            </div>
+
+            <div>
+              <div class="mb-3">
+                <label for="name" class="form-label">Material Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control"
+                  name="name"
+                  [(ngModel)]="material.name"
+                  required
+                  #name="ngModel"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input
+                  type="text"
+                  id="description"
+                  class="form-control"
+                  name="description"
+                  [(ngModel)]="material.description"
+                  required
+                  #description="ngModel"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="fiscalCode" class="form-label">Fiscal Code</label>
+                <input
+                  type="text"
+                  id="fiscalCode"
+                  class="form-control"
+                  name="fiscalCode"
+                  [(ngModel)]="material.fiscalCode"
+                  required
+                  #fiscalCode="ngModel"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="specie" class="form-label">Specie</label>
+                <input
+                  type="text"
+                  id="specie"
+                  class="form-control"
+                  name="specie"
+                  [(ngModel)]="material.specie"
+                  required
+                  #specie="ngModel"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="code" class="form-label">Code</label>
+                <input
+                  type="text"
+                  id="code"
+                  class="form-control"
+                  name="code"
+                  [(ngModel)]="material.code"
+                  required
+                  #code="ngModel"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="updatedBy" class="form-label">Updated By</label>
+                <input
+                  type="text"
+                  id="updatedBy"
+                  class="form-control"
+                  name="updatedBy"
+                  [(ngModel)]="material.updatedBy"
+                  required
+                  #updatedBy="ngModel"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="idSupplier" class="form-label">Supplier</label>
+                <select
+                  id="idSupplier"
+                  class="form-select"
+                  [(ngModel)]="material.idSupplier"
+                  name="idSupplier"
+                  (change)="onSupplierChange($event)"
+                  required
+                >
+                  <option *ngFor="let supplier of suppliersData" [value]="supplier.supplierId">
+                    Supplier ID: {{ supplier.supplierId }}
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">QR Code</label>
+              <div class="alert alert-secondary">
+                {{ selectedQrCode }}
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-warning w-100"
+              [disabled]="
+                !materialId.valid || !name.valid || !description.valid || !fiscalCode.valid || !specie.valid || !code.valid || !updatedBy.valid
+              "
+            >
+              Update Material
+            </button>
+          </form>
+
+          <div *ngIf="material && material.id" class="mt-4">
+            <h5 class="text-center">Material Details</h5>
+            <div class="card">
+              <div class="card-body">
+                <p><strong>ID:</strong> {{ material.id }}</p>
+                <p><strong>Name:</strong> {{ material.name }}</p>
+                <p><strong>Description:</strong> {{ material.description }}</p>
+                <p><strong>Fiscal Code:</strong> {{ material.fiscalCode }}</p>
+                <p><strong>Specie:</strong> {{ material.specie }}</p>
+                <p><strong>Code:</strong> {{ material.code }}</p>
+                <p><strong>Updated By:</strong> {{ material.updatedBy }}</p>
+                <p><strong>Supplier:</strong> {{ material.idSupplier }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container py-5">
+    <h1 class="text-center mb-4">Supplier Management</h1>
+    
+    <div class="row justify-content-center">
+      
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <i class="bi bi-plus-circle-fill display-4 text-primary mb-3"></i>
+            <h5 class="card-title">Add Supplier</h5>
+            <p class="card-text">Easily add new suppliers to the system.</p>
+         
+            <a class="btn btn-primary w-100" [routerLink]="['/supplier/add']">Add Supplier</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <i class="bi bi-eye-fill display-4 text-secondary mb-3"></i>
+            <h5 class="card-title">View Suppliers</h5>
+            <p class="card-text">View the list of all suppliers in the system.</p>
+      
+            <a class="btn btn-secondary w-100" [routerLink]="['/supplier/get']">View Suppliers</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <i class="bi bi-pencil-fill display-4 text-warning mb-3"></i>
+            <h5 class="card-title">Update Supplier</h5>
+            <p class="card-text">Modify details of an existing supplier.</p>
+         
+            <a class="btn btn-warning w-100" [routerLink]="['/supplier/update']">Update Supplier</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-lg border-0">
+          <div class="card-body text-center">
+            <i class="bi bi-trash-fill display-4 text-danger mb-3"></i>
+            <h5 class="card-title">Delete Supplier</h5>
+            <p class="card-text">Remove a supplier from the system.</p>
+          
+            <a class="btn btn-danger w-100" [routerLink]="['/supplier/delete']">Delete Supplier</a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  

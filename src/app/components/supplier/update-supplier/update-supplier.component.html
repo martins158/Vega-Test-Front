@@ -1,0 +1,92 @@
+<div class="container py-5">
+  <h2 class="display-4 text-warning text-center mb-4">Update Supplier</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h5 class="card-title text-center">Enter Supplier ID to Update</h5>
+
+          <form (ngSubmit)="updateSupplier(supplier)">
+            <div class="mb-3">
+              <label for="supplierId" class="form-label">Supplier ID</label>
+              <input 
+                type="text" 
+                id="supplierId" 
+                class="form-control" 
+                name="supplierId" 
+                [(ngModel)]="supplier.id" 
+                required
+                #supplierId="ngModel"
+                >
+            </div>
+
+            <div>
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  class="form-control" 
+                  name="name" 
+                  [(ngModel)]="supplier.name" 
+                  required 
+                  #name="ngModel">
+              </div>
+              <div class="mb-3">
+                <label for="cnpj" class="form-label">CNPJ</label>
+                <input 
+                  type="text" 
+                  id="cnpj" 
+                  class="form-control" 
+                  name="cnpj" 
+                  [(ngModel)]="supplier.cnpj" 
+                  required 
+                  #cnpj="ngModel">
+              </div>
+              <div class="mb-3">
+                <label for="cep" class="form-label">Fiscal Code</label>
+                <input 
+                  type="text" 
+                  id="cep" 
+                  class="form-control" 
+                  name="cep" 
+                  [(ngModel)]="supplier.cep" 
+                  required 
+                  #cep="ngModel">
+              </div>
+              <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input 
+                  type="text" 
+                  id="country" 
+                  class="form-control" 
+                  name="country" 
+                  [(ngModel)]="supplier.country" 
+                  required 
+                  #country="ngModel">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-warning w-100" [disabled]="!supplierId.valid|| !name.valid || !cnpj.valid || !country.valid || !cep.valid">
+              Update Supplier
+            </button>
+          </form>
+
+          <!-- <div *ngIf="supplier && supplier.id"  class="mt-4">
+            <h5 class="text-center">Supplier Details</h5>
+            <div class="card">
+              <div class="card-body">
+                <p><strong>ID:</strong> {{ supplier.id }}</p>
+                <p><strong>Name:</strong> {{ supplier.name }}</p>
+                <p><strong>CNPJ:</strong> {{ supplier.cnpj }}</p>
+                <p><strong>CEP:</strong> {{ supplier.cep }}</p>
+                <p><strong>Country:</strong> {{ supplier.country }}</p>
+              </div>
+            </div> -->
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="container py-5">
+  <h2 class="display-4 text-secondary text-center mb-4">Material List</h2>
+
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-8">
+
+
+      <button class="btn btn-primary mb-3" (click)="printMaterials()">Print Materials</button>
+
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h5 class="text-center mb-4">Filter Materials</h5>
+
+
+
+          <form (ngSubmit)="applyFilter()">
+            <div class="mb-3">
+              <label for="filterName" class="form-label">Material Name</label>
+              <input
+                type="text"
+                id="filterName"
+                class="form-control"
+                name="filterName"
+                [(ngModel)]="filter.name"
+                placeholder="Enter material name"
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="filterCreatedAt" class="form-label">Created At</label>
+              <input
+                type="date"
+                id="filterCreatedAt"
+                class="form-control"
+                name="filterCreatedAt"
+                [(ngModel)]="filter.createdAt"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-warning w-100"
+              
+            >
+              Apply Filter
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h5 class="text-center mb-4">All Materials</h5>
+
+          <div *ngIf="filteredMaterials.length === 0" class="alert alert-warning text-center">
+            No materials found.
+          </div>
+
+          <div *ngFor="let material of filteredMaterials" class="mt-4">
+            <div class="card mb-3 shadow-sm">
+              <div class="card-header bg-primary text-white">
+                <h6 class="mb-0">Material ID: {{ material.id }}</h6>
+              </div>
+              <div class="card-body">
+                <p><strong>Name:</strong> {{ material.name }}</p>
+                <p><strong>Code:</strong> {{ material.code }}</p>
+                <p><strong>Description:</strong> {{ material.description }}</p>
+                <p><strong>Fiscal Code:</strong> {{ material.fiscalCode }}</p>
+                <p><strong>Specie:</strong> {{ material.specie }}</p>
+                <p><strong>Created At:</strong> {{ material.createdAt | date}}</p>
+                <p><strong>Created By:</strong> {{ material.createdBy }}</p>
+                <p *ngIf="material.updatedAt"><strong>Updated At:</strong> {{ material.updatedAt | date }}</p>
+                <p *ngIf="material.updatedBy"><strong>Updated By:</strong> {{ material.updatedBy }}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

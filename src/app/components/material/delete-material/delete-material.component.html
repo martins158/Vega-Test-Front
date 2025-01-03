@@ -1,0 +1,34 @@
+<div class="container py-5">
+  <h2 class="display-4 text-danger text-center mb-4">Delete Material</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <h5 class="card-title text-center">Enter Material ID to Delete</h5>
+
+          <form (ngSubmit)="deleteMaterialById(materialId.value)">
+            <div class="mb-3">
+              <label for="materialId" class="form-label">material ID</label>
+              <input 
+                type="number" 
+                id="materialId" 
+                class="form-control" 
+                name="materialId" 
+                [(ngModel)]="materialId"
+                required
+                #materialId="ngModel">
+            </div>
+
+            <button type="submit" class="btn btn-danger w-100" [disabled]="!materialId.valid">
+              Delete Material
+            </button>
+          </form>
+          <div *ngIf="deleteResponse" class="mt-3 alert alert-info">
+            {{ deleteResponse }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

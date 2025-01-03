@@ -1,0 +1,113 @@
+<div class="container py-5">
+  <h2 class="display-4 text-primary text-center mb-4">Add Material</h2>
+
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-lg border-0">
+        <div class="card-body">
+          <form (ngSubmit)="addMaterial(material)">
+           
+            <div class="mb-3">
+              <label for="name" class="form-label">Material Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                [(ngModel)]="material.name"
+                name="name"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                id="description"
+                class="form-control"
+                [(ngModel)]="material.description"
+                name="description"
+                required
+              ></textarea>
+            </div>
+
+            <div class="mb-3">
+              <label for="fiscalCode" class="form-label">Fiscal Code</label>
+              <input
+                type="text"
+                id="fiscalCode"
+                class="form-control"
+                [(ngModel)]="material.fiscalCode"
+                name="fiscalCode"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="specie" class="form-label">Specie</label>
+              <input
+                type="text"
+                id="specie"
+                class="form-control"
+                [(ngModel)]="material.specie"
+                name="specie"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="code" class="form-label">Code</label>
+              <input
+                type="text"
+                id="code"
+                class="form-control"
+                [(ngModel)]="material.code"
+                name="code"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="createdBy" class="form-label">Created By</label>
+              <input
+                type="text"
+                id="createdBy"
+                class="form-control"
+                [(ngModel)]="material.createdBy"
+                name="createdBy"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <label for="idSupplier" class="form-label">Supplier</label>
+              <select
+                id="idSupplier"
+                class="form-select"
+                [(ngModel)]="material.idSupplier"
+                name="idSupplier"
+                (change)="onSupplierChange($event)"
+                required
+              >
+                <option *ngFor="let supplier of suppliersData" [value]="supplier.supplierId">
+                  Supplier ID: {{ supplier.supplierId }}
+                </option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">QR Code</label>
+              <div class="alert alert-secondary">
+                {{ selectedQrCode }}
+              </div>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary w-100">
+                Save Material
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
